@@ -216,30 +216,29 @@
             object-fit: cover;
             border-radius: 10px;
         }
+.n {
+    position: absolute; /* Position them absolutely */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for the height of the button */
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    font-size: 30px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
 
-        .n {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            height: 60px;
-            width: 60px;
-            border-radius: 50%;
-            font-size: 30px;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 10;
-        }
+.n.l {
+    left: 20px; /* Position the left button */
+}
 
-        .n.l {
-            margin-left: 200px;
-        }
-
-        .n.r {
-            margin-right: 200px;
-        }
+.n.r {
+    right: 20px; /* Position the right button */
+}
 
         .n:hover {
             background-color: rgba(0, 0, 0, 0.8);
