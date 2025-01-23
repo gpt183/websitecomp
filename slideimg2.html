@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Slider</title>
+  <style>
+    /* Container for the slider */
+    #s {
+      position: relative;
+      width: 50%; /* Adjust as needed */
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    /* The container that holds all the images in a row */
+    .c {
+      display: flex;
+      transition: transform 0.5s ease; /* Smooth sliding transition */
+    }
+
+    /* Each image wrapper */
+    .i {
+      min-width: 100%; /* Ensure each image takes full width */
+      box-sizing: border-box;
+    }
+
+    /* Ensure images fit well within their container */
+    .i img {
+      width: 30%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* Style for the left and right navigation buttons */
+    .n {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      font-size: 30px;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 10; /* Ensure the buttons are on top */
+    }
+
+    .n.l {
+      left: 180px;
+    }
+
+    .n.r {
+      right: 180px;
+    }
+
+    .n:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Slider Section -->
+<section id="s" align="center">
+  <!-- Left Scroll Button -->
+  <button class="n l" onclick="mL()">&#10094;</button>
+
+  <!-- Image Container -->
+  <div class="c">
+    <div class="i">
+     <img src="C:\sakeeb\websitecomp\padma.png" alt="Image 1">
+    </div>
+    <div class="i">
+      <img src="C:\sakeeb\websitecomp\KRISHNA MOHAN.png" alt="Image 2">
+    </div>
+    <div class="i">
+       <img src="C:\sakeeb\websitecomp\jyothi.png"alt="Image 3">
+    </div>
+    <div class="i">
+       <img src="C:\sakeeb\websitecomp\Murali krishna.png" alt="Image 4">
+    </div>
+    <div class="i">
+      <img src="C:\sakeeb\websitecomp\venkat.png" alt="Image 5">
+    </div>
+    <div class="i">
+     <img src="C:\sakeeb\websitecomp\niranjan.png" alt="Image 6">
+    </div>
+    <div class="i">
+  <img src="C:\sakeeb\websitecomp\RK.png" alt="Image 7">
+    </div>
+    <div class="i">
+     <img src="C:\sakeeb\websitecomp\aravind.png" alt="Image 8">
+    </div>
+    <div class="i">
+        <img src="C:\sakeeb\websitecomp\gopi.png" alt="Image 9">
+    </div>
+   <div class="i">
+         <img src="C:\sakeeb\websitecomp\CMF1.png" alt="Image 10">
+    </div>
+  </div>
+   
+  <!-- Right Scroll Button -->
+  <button class="n r" onclick="mR()">&#10095;</button>
+</section>
+
+<script>
+  const c = document.querySelector('.c');
+  const i = document.querySelectorAll('.i');
+  const t = i.length;
+  let ci = 0;
+
+  // Clone the first and last slides to create a circular loop
+  const f = document.querySelector('.i:first-child').cloneNode(true);
+  const l = document.querySelector('.i:last-child').cloneNode(true);
+  
+  // Add the clones to the image container
+  c.appendChild(f);  // Append clone of first slide to the end
+  c.insertBefore(l, c.firstChild);  // Prepend clone of last slide to the beginning
+
+  // Function to update the slider by changing the transform property
+  function uS() {
+    c.style.transform = `translateX(-${(ci + 1) * 100}%)`; // Move the images based on ci, +1 for clone offset
+  }
+
+  // Function to move slides to the left
+  function mL() {
+    if (ci <= 0) {
+      ci = t - 1;  // When at the first image, go to the last one (ignoring the clones)
+      c.style.transition = 'none';  // Remove transition during the jump
+      uS();
+      
+      // Apply smooth transition after the jump
+      setTimeout(() => {
+        c.style.transition = 'transform 0.5s ease';
+      }, 50);  // Small delay for smooth transition
+    } else {
+      ci--;
+    }
+    uS();
+  }
+
+  // Function to move slides to the right
+  function mR() {
+    if (ci >= t) {
+      ci = 0;  // Reset to the first image (ignoring the clones)
+      c.style.transition = 'none';  // Remove transition during the jump
+      uS();
+      
+      // Apply smooth transition after the jump
+      setTimeout(() => {
+        c.style.transition = 'transform 0.5s ease';
+      }, 50);  // Small delay for smooth transition
+    } else {
+      ci++;
+    }
+    uS();
+  }
+
+  // Automatically change the slide every 3 seconds
+  setInterval(function() {
+    mR(); // Automatically move to the next slide
+  }, 3000); // 3000ms = 3 seconds
+
+  // Start the initial update when the page loads
+  uS();
+</script>
+
+</body>
+</html>

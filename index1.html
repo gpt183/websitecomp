@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Govt Polytechnic College</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    .container {
+        width: 90%;
+        margin: auto;
+        max-width: 1200px;
+    }
+
+    h1, h2 {
+        color: #003366;
+    }
+
+    /* Header */
+    .header {
+        background: #003366;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .header .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header img {
+        height: 50px;
+        margin-left: 400px;
+    }
+
+    .navbar ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar li {
+        margin: 0 15px;
+        position: relative;
+    }
+
+    .navbar a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px 15px;
+    }
+
+    .navbar a:hover {
+        background: #005bb5;
+        border-radius: 5px;
+    }
+
+    /* Dropdown */
+    .navbar li:hover .dropdown {
+        display: block;
+    }
+
+    .dropdown {
+        display: none;
+        position: absolute;
+        background: #003366;
+        top: 100%;
+        left: 0;
+        width: 200px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .dropdown a:hover {
+        background: #005bb5;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: url('hero-bg.jpg') no-repeat center center/cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        text-align: center;
+    }
+    /* Container for the slider */
+    #slider-wrapper {
+      position: relative;
+      width: 100%; /* Adjust as needed */
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    /* The container that holds all the images in a row */
+    .image-container {
+      display: flex;
+      transition: transform 0.5s ease; /* Smooth sliding transition */
+    }
+
+    /* Each image wrapper */
+    .slide-item {
+      min-width: 100%; /* Ensure each image takes full width */
+      box-sizing: border-box;
+    }
+
+    /* Ensure images fit well within their container */
+    .slide-item img {
+      width: 60%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* Style for the left and right navigation buttons */
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 30px;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 10; /* Ensure the buttons are on top */
+    }
+
+    .nav-button.left {
+      left: 10px;
+    }
+
+    .nav-button.right {
+      right: 10px;
+    }
+
+    .nav-button:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .hero h2 {
+        font-size: 3rem;
+    }
+
+    .hero .btn {
+        display: inline-block;
+        margin-top: 15px;
+        background: #ff5733;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .hero .btn:hover {
+        background: #c13d24;
+    }
+
+    /* Sections */
+    .section {
+        padding: 50px 0;
+    }
+
+    .section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+/*scroll images code*/
+    .carousel-container {
+        position: relative;
+        width: 100%; /* Adjust the width as needed */
+        overflow: hidden;
+    }
+
+    .image-set {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .image-set img {
+        width: 300px;
+        height: 200px;
+        margin: 0 10px; /* Space between images */
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .nav-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        font-size: 30px;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10; /* Ensure the buttons are on top */
+    }
+
+    .nav-button.left {
+        left: 0;
+    }
+
+    .nav-button.right {
+        right: 0;
+    }
+
+    .nav-button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    #location img {
+        width: 80%;
+        height: auto;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+
+    /* Departments Section */
+    .card-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        background: #f4f4f4;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        width: 250px;
+        margin: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card i {
+        font-size: 3rem;
+        color: #003366;
+        margin-bottom: 10px;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .gallery-grid img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Footer */
+    .footer {
+        background: #003366;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img  src="D:\tanishq\sakeeb\GPTGNVMLOGO.jpg" alt="College Logo" width="300">&nbsp
+                <h1>Govt Polytechnic College</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#departments">Departments</a>
+                        <div class="dropdown">
+                            <a href="#">CME</a>
+                            <a href="#">EEE</a>
+                            <a href="#">ECE</a>
+                            <a href="#">MEC</a>
+                        </div>
+                    </li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+<!-- Slider Section -->
+<section id="slider-wrapper" align="center">
+  <!-- Left Scroll Button -->
+  <button class="nav-button left" onclick="moveLeft()">&#10094;</button>
+
+  <!-- Image Container -->
+  <div class="image-container">
+    <div class="slide-item">
+      <img src="D:\tanishq\sakeeb\GPTGNVM6.jpg" alt="College Image 1">
+    </div>
+    <div class="slide-item">
+      <img src="D:\tanishq\sakeeb\GPTGNVM3.jpg" alt="College Image 2">
+    </div>
+    <div class="slide-item">
+      <img src="D:\tanishq\sakeeb\GPTGNM4.jpg" alt="College Image 3">
+    </div>
+    <div class="slide-item">
+      <img src="D:\tanishq\sakeeb\GPTGNVM5.jpg" alt="College Image 4">
+    </div>
+  </div>
+
+  <!-- Right Scroll Button -->
+  <button class="nav-button right" onclick="moveRight()">&#10095;</button>
+</section>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Govt Polytechnic College</h2>
+            <p>Your gateway to a bright future!</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>
+                We are committed to providing quality education and fostering innovation, shaping the leaders of tomorrow. 
+                With state-of-the-art facilities and experienced faculty, we ensure the holistic development of our students.
+            </p>
+        </div>
+    </section>
+
+    <section id="departments" class="section departments">
+        <div class="container">
+            <h2>Our Departments</h2>
+            <div class="card-container">
+                <div class="card">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Computer Engineering</h3>
+                </div>
+                <div class="card">
+                    <i class="fas fa-building"></i>
+                    <h3>Electronics and Communication Engineering</h3>
+                </div>
+                <div class="card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Mechanical Engineering</h3>
+                </div>
+                <div class="card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Electrical and Electronics Engineering</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+<br><br>
+   <div class="carousel-container">
+        <button class="nav-button left" onclick="moveLeft()">&#10094;</button>
+        
+        <div class="image-set">
+            <img src="https://images6.alphacoders.com/131/1319754.jpeg" alt="Image 1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTutFgiovy-cJ456GoRtRoGX3YZ-gGQ_895TA&s" alt="Image 2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUOc5Zb3nSRcHjVhmWwVYLj0dngxw5RsXMvQ&s" alt="Image 3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO_7hqRYLUzGsc2wpne5DB0aViK4GkbeOkyA&s" alt="Image 4">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlvsbiZkSoJwN3K1xnq2yDbM0IP3YAs73MTQ&s" alt="Image 5">
+           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcTO5a4G7xdxWIwlTFSFYnjo138KuYG_-pSA&s" alt="image 6">
+        </div>
+</div>
+<br><br>
+    <section id="gallery" class="section gallery">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <img src="gallery1.jpg" alt="Event 1">
+                <img src="gallery2.jpg" alt="Event 2">
+                <img src="gallery3.jpg" alt="Event 3">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Govt Polytechnic College. All rights reserved.</p>
+        </div>
+    </footer>
+<script>
+ const imageSet = document.querySelector('.image-set');
+
+    // Function to scroll images automatically
+    let autoScrollInterval;
+
+    function startAutoScroll() {
+        autoScrollInterval = setInterval(() => {
+            moveLeft(); // Change to scroll left
+        }, 3000); // Changed time to 3000ms (3 seconds)
+    }
+
+    function stopAutoScroll() {
+        clearInterval(autoScrollInterval);
+    }
+
+    // Function to scroll left by one image width
+    function moveLeft() {
+        const width = document.querySelector('.image-set img').offsetWidth + 20; // Including margin
+        imageSet.style.transform = `translateX(-${width}px)`;
+    }
+
+    // Function to scroll right by one image width
+    function moveRight() {
+        const width = document.querySelector('.image-set img').offsetWidth + 20; // Including margin
+        imageSet.style.transform = `translateX(${width}px)`;
+    }
+
+    // Reset scrolling position after one cycle (to loop images smoothly)
+    imageSet.addEventListener('transitionend', () => {
+        const lastImage = imageSet.querySelector('img:last-child');
+        if (imageSet.style.transform.includes('-')) {
+            imageSet.insertBefore(lastImage, imageSet.firstChild);
+            imageSet.style.transition = 'none'; // Remove transition effect temporarily
+            imageSet.style.transform = 'translateX(0)';
+            setTimeout(() => {
+                imageSet.style.transition = 'transform 0.5s ease'; // Re-enable transition effect
+            });
+        } else {
+            const firstImage = imageSet.querySelector('img');
+            imageSet.appendChild(firstImage);
+            imageSet.style.transition = 'none'; // Remove transition effect temporarily
+            imageSet.style.transform = 'translateX(0)';
+            setTimeout(() => {
+                imageSet.style.transition = 'transform 0.5s ease'; // Re-enable transition effect
+            });
+        }
+    });
+
+    // Start automatic scrolling when the page loads
+    startAutoScroll();
+
+    // Optional: Pause automatic scrolling when user hovers over the slider
+    document.querySelector('.carousel-container').addEventListener('mouseover', stopAutoScroll);
+    document.querySelector('.carousel-container').addEventListener('mouseout', startAutoScroll);
+
+  const imageContainer = document.querySelector('.image-container');
+  const slides = document.querySelectorAll('.slide-item');
+  const totalSlides = slides.length;
+  let currentIndex = 0;
+
+  // Clone the first and last slides to create a circular loop
+  const firstSlide = document.querySelector('.slide-item:first-child').cloneNode(true);
+  const lastSlide = document.querySelector('.slide-item:last-child').cloneNode(true);
+  
+  // Add the clones to the image container
+  imageContainer.appendChild(firstSlide);  // Append clone of first slide to the end
+  imageContainer.insertBefore(lastSlide, imageContainer.firstChild);  // Prepend clone of last slide to the beginning
+
+  // Function to update the slider by changing the transform property
+  function updateSlider() {
+    imageContainer.style.transform = `translateX(-${(currentIndex + 1) * 100}%)`; // Move the images based on currentIndex, +1 for clone offset
+  }
+
+  // Function to move slides to the left
+  function moveLeft() {
+    if (currentIndex <= 0) {
+      currentIndex = totalSlides - 1;  // When at the first image, go to the last one (ignoring the clones)
+      imageContainer.style.transition = 'none';  // Remove transition during the jump
+      updateSlider();
+      
+      // Apply smooth transition after the jump
+      setTimeout(() => {
+        imageContainer.style.transition = 'transform 0.5s ease';
+      }, 50);  // Small delay for smooth transition
+    } else {
+      currentIndex--;
+    }
+    updateSlider();
+  }
+
+  // Function to move slides to the right
+  function moveRight() {
+    if (currentIndex >= totalSlides) {
+      currentIndex = 0;  // Reset to the first image (ignoring the clones)
+      imageContainer.style.transition = 'none';  // Remove transition during the jump
+      updateSlider();
+      
+      // Apply smooth transition after the jump
+      setTimeout(() => {
+        imageContainer.style.transition = 'transform 0.5s ease';
+      }, 50);  // Small delay for smooth transition
+    } else {
+      currentIndex++;
+    }
+    updateSlider();
+  }
+
+  // Automatically change the slide every 3 seconds
+  setInterval(function() {
+    moveRight(); // Automatically move to the next slide
+  }, 3000); // 3000ms = 3 seconds
+
+  // Start the initial update when the page loads
+  updateSlider();
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Scrolling Images with Buttons</title>
+<style>
+   body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.slider-container {
+    position: relative;
+    width: 80%; /* Adjust the width as needed */
+    overflow: hidden;
+}
+
+.image-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.image-wrapper img {
+    width: 300px;
+    height: 200px;
+    margin: 0 10px; /* Space between images */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 30px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.scroll-button.left {
+    left: 0;
+}
+
+.scroll-button.right {
+    right: 0;
+}
+
+.scroll-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+</style>
+</head>
+<body>
+    <div class="slider-container">
+        <button class="scroll-button left" onclick="scrollLeft()">&#10094;</button>
+        
+        <div class="image-wrapper">
+            <img src="https://images6.alphacoders.com/131/1319754.jpeg" alt="Image 1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTutFgiovy-cJ456GoRtRoGX3YZ-gGQ_895TA&s" alt="Image 2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUOc5Zb3nSRcHjVhmWwVYLj0dngxw5RsXMvQ&s" alt="Image 3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO_7hqRYLUzGsc2wpne5DB0aViK4GkbeOkyA&s" alt="Image 4">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlvsbiZkSoJwN3K1xnq2yDbM0IP3YAs73MTQ&s" alt="Image 5">
+        </div>
+        
+        <button class="scroll-button right" onclick="scrollRight()">&#10095;</button>
+    </div>
+
+    <script>
+
+   const imageWrapper = document.querySelector('.image-wrapper');
+
+// Function to scroll images automatically
+let scrollInterval;
+
+function startAutoScroll() {
+    scrollInterval = setInterval(() => {
+        scrollLeft(); // Change to scroll left
+    }, 2000); // Change time to 2000ms (2 seconds)
+}
+
+function stopAutoScroll() {
+    clearInterval(scrollInterval);
+}
+
+// Function to scroll left by one image width
+function scrollLeft() {
+    const width = document.querySelector('.image-wrapper img').offsetWidth + 20; // Including margin
+    imageWrapper.style.transform = `translateX(-${width}px)`;
+}
+
+// Function to scroll right by one image width (this function is not needed anymore but kept for reference)
+function scrollRight() {
+    const width = document.querySelector('.image-wrapper img').offsetWidth + 20; // Including margin
+    imageWrapper.style.transform = `translateX(${width}px)`;
+}
+
+// Reset scrolling position after one cycle (to loop images smoothly)
+imageWrapper.addEventListener('transitionend', () => {
+    const lastImage = imageWrapper.querySelector('img:last-child');
+    if (imageWrapper.style.transform.includes('-')) {
+        imageWrapper.insertBefore(lastImage, imageWrapper.firstChild);
+        imageWrapper.style.transition = 'none'; // Remove transition effect temporarily
+        imageWrapper.style.transform = 'translateX(0)';
+        setTimeout(() => {
+            imageWrapper.style.transition = 'transform 0.5s ease'; // Re-enable transition effect
+        });
+    } else {
+        const firstImage = imageWrapper.querySelector('img');
+        imageWrapper.appendChild(firstImage);
+        imageWrapper.style.transition = 'none'; // Remove transition effect temporarily
+        imageWrapper.style.transform = 'translateX(0)';
+        setTimeout(() => {
+            imageWrapper.style.transition = 'transform 0.5s ease'; // Re-enable transition effect
+        });
+    }
+});
+
+// Start automatic scrolling when the page loads
+startAutoScroll();
+
+// Optional: Pause automatic scrolling when user hovers over the slider
+document.querySelector('.slider-container').addEventListener('mouseover', stopAutoScroll);
+document.querySelector('.slider-container').addEventListener('mouseout', startAutoScroll);
+
+</script>
+</body>
+</html>

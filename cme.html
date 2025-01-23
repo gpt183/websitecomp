@@ -1,0 +1,201 @@
+<html>
+<head>
+<title>
+Computer Engineering
+</title>
+<style>
+    /* General Styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        color: #333;
+        line-height: 1.6;
+    }
+    /* Header */
+    .header {
+        background: #003366;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .header .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+margin-right:400;
+    }
+
+    .header img {
+        height: 50px;
+        margin-left: 400px;
+    }
+
+    .navbar ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar li {
+        margin: 0 15px;
+        position: relative;
+    }
+
+    .navbar a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px 15px;
+    }
+
+    .navbar a:hover {
+        background: #005bb5;
+        border-radius: 5px;
+    }
+
+    /* Dropdown */
+    .navbar li:hover .dropdown {
+        display: block;
+    }
+
+    .dropdown {
+        display: none;
+        position: absolute;
+        background: #003366;
+        top: 100%;
+        left: 0;
+        width: 200px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .dropdown a:hover {
+        background: #005bb5;
+    }
+
+
+
+        /* Outer Section Container */
+        .container-main {
+            width: 85%;
+            max-width: 1300px;
+            text-align: center;
+            background-color: #ffffff;
+            padding: 60px 25px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+        }
+
+        /* Header Styling */
+        .heading-section h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 40px;
+        }
+
+        /* Button Section */
+        .btn-group {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        /* Button Styling */
+        .button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.25em;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+            transform: translateY(-4px);
+        }
+
+        .button:active {
+            background-color: #1d6fa5;
+            transform: translateY(2px);
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 768px) {
+            .btn-group {
+                flex-direction: column;
+                gap: 18px;
+            }
+        }
+</style>
+</head>
+<body> 
+
+
+   <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img  src="D:\tanishq\sakeeb\GPTGNVMLOGO (1).jpg" alt="College Logo" width="300">&nbsp
+               
+            </div><br>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#departments">Departments</a>
+                        <div class="dropdown">
+                            <a href="#">CME</a>
+                            <a href="#">EEE</a>
+                            <a href="#">ECE</a>
+                            <a href="#">MEC</a>
+                        </div>
+                    </li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<br>
+<br>
+
+    <div class="container-main">
+        <div class="heading-section">
+            <h1>Department of Computer Engineering</h1>
+        </div>
+        <div class="btn-group">
+            <button class="button">Syllabus</button>
+            <button class="button">Faculty</button>
+            <button class="button">Results</button>
+            <button class="button">Labs</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+ 
+       
+  
+</body>
+</html>

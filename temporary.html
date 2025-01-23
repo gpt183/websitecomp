@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="x-icon" href="https://cache.careers360.mobi/media/colleges/social-media/logo/Logo_of_Government_Polytechnic_Gannavaram_Logo.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Government Polytechnic Gannavaram</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background:;
+  color: black;
+  line-height: 1.6;
+}
+
+nav {
+  background-color:	 black/*#28B463*/;
+  border-style:inset;
+  padding:10px 10px 10px 10px;
+  color:white;  <!blue>
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav .logo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: white;
+ 	<! #8AAAE5> 
+  
+  text-transform: uppercase;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav ul li {
+  margin-left: 25px;
+  position: relative;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 10px 15px;
+  transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+  background: #2575fc;
+  border-radius: 5px;
+}
+
+nav ul li ul {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  top: 100%;
+  left: 0;
+  padding: 10px 0;
+  width: 300px;
+  border-radius: 8px;
+}
+
+nav ul li:hover ul {
+  display: block;
+}
+
+nav ul li ul li a {
+  padding: 10px;
+  color: #fff;
+}
+
+section {
+  padding: 3rem 2rem;
+  margin-top: 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.slideshow-container {
+  position: relative;
+  max-width: 75%;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.slides {
+  display: none;
+}
+
+.slides img {
+  width: 680px;  /* Adjusted width */
+  height: 382px; /* Adjusted height */
+  border-radius: 10px;
+}
+
+.departments-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.department {
+  width: 23%;
+  background:#73C5F7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.department img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.department h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.department p {
+  font-size: 1.1rem;
+}
+
+.notice-board ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+.notice-board li {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.facilities ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+  text-align: left;
+  font-size: 1.2rem;
+}
+.carousel-container {
+    position: relative;
+    width: 100%; /* Adjust the width as needed */
+    overflow: hidden;
+}
+
+.image-set {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.image-set img {
+    width: 300px;
+    height: 200px;
+    margin: 0 10px; /* Space between images */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 30px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10; /* Ensure the buttons are on top */
+}
+
+.nav-button.left {
+    left: 0;
+}
+
+.nav-button.right {
+    right: 0;
+}
+
+.nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+/*
+    #location img {
+        width: 80%;
+        height: auto;
+        border-radius: 10px;
+        margin-top: 20px;
+    }*/
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #222;
+  color: #fff;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: 30px;
+}
+
+footer p {
+  font-size: 1rem;
+} 
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo"><img src="https://cache.careers360.mobi/media/colleges/social-media/logo/Logo_of_Government_Polytechnic_Gannavaram_Logo.jpg" height="27.2px">&nbspGovernment Polytechnic Gannavaram<br></div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#departments">Departments</a>
+        <ul>
+          <li><a href="#cme">CME</a></li>
+          <li><a href="#ece">ECE</a></li>
+          <li><a href="#eee">EEE</a></li>
+          <li><a href="#mechanical">Mechanical</a></li>
+        </ul>
+      </li>
+      <li><a href="#admissions">Admissions</a></li>
+      <li><a href="#academics">Academics</a></li>
+      <li><a href="https://sbtet.ap.gov.in/APSBTET/gradeWiseResults.do" target="blank">Results</a></li>
+      <li><a href="#placements">Placements</a></li>
+      <li><a href="#examination-cell">Examination Cell</a>
+        <ul>
+          <li><a href="#members">Members</a></li>
+          <li><a href="#calendar">Academic Calendar</a></li>
+          <li><a href="#timetable">Timetable</a></li>
+          <li><a href="#syllabus">Syllabus</a></li>
+          <li><a href="#question-papers">Previous Year Papers</a></li>
+          <li><a href="#rules">Rules</a></li>
+        </ul>
+      </li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Slideshow Section -->
+  <section id="home">
+    <div class="slideshow-container">
+      <div class="slides fade">
+        <img src="C:\SAKEEB\sakeeb\GPTGNVM6.jpg" alt="College Image 1">
+      </div>
+      <div class="slides fade">
+        <img src="C:\SAKEEB\sakeeb\GPTGNM4.jpg" alt="College Image 2">
+      </div>
+      <div class="slides fade">
+        <img src="C:\SAKEEB\sakeeb\GPTGNVM3.jpg" alt="College Image 3">
+      </div>
+      <div class="slides fade">
+        <img src="C:\SAKEEB\sakeeb\GPTGNVM5.jpg" alt="College Image 3">
+      </div>
+    </div>
+  </section>
+
+  <!-- Welcome Section -->
+  <section id="welcome">
+    <h2>Welcome to Polytechnic College</h2>
+    <p align="center"><big>VISION To impart quality and value based education in the field of Diploma Engineering so as to produce competent Technocrats to meet industry requirements with societal and environmental concern and ethical values. </big></p><b>MISSION</b>
+<dl>
+<dt>To impart technical knowledge and skills by using modern engineering and e-learning tools.</dt>
+<dt>To facilitate Industry-Institute interaction to expose students to current industrial practices that will help them to solve industrial challenges</dt>
+<dt>To inculcate ethical and professional values among students that will make them socially and environmentally responsible.</dt>
+<dt>
+To motivate students towards lifelong learning and helping them to find right career opportunities.</dt>
+</dl>
+  </section>
+
+  <!-- Department Information -->
+  <section id="departments">
+    <h2>Our Departments</h2>
+    <div class="departments-container">
+      <div class="department" id="cme">
+        <img src="C:\sakeeb\cse.png" alt="CME Department Logo">
+        <h3>CME - Computer Engineering</h3>
+        <p>Focuses on engineering principles and design for the software technology.</p>
+      </div>
+      <div class="department" id="ece">
+        <img src="C:\sakeeb\ece.png" alt="ECE Department Logo">
+        <h3>ECE - Electronics and Communication Engineering</h3>
+        <p>Specializes in communication systems, electronics, and signal processing technologies.</p>
+      </div>
+      <div class="department" id="eee">
+        <img src="C:\sakeeb\eee.png" alt="EEE Department Logo">
+        <h3>EEE - Electrical and Electronics Engineering</h3>
+        <p>Involves electrical systems, energy management, and power generation technologies.</p>
+      </div>
+      <div class="department" id="mechanical">
+        <img src="C:\sakeeb\mec.png" alt="Mechanical Department Logo">
+        <h3>Mechanical Engineering</h3>
+        <p>Explores mechanics, thermodynamics, and material science for machine and device design.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notice Board -->
+  <section id="notice-board">
+    <h2>Notice Board</h2>
+<iframe href="file:///C:/SAKEEB/sakeeb/notice.html"  height="300" width="500"></iframe>
+  </section>
+
+  <!-- College Facilities -->
+  <section id="facilities">
+    <h2>Our College Facilities</h2>
+    
+      State-of-the-art Labs<br>
+      Modern Libraries<br>
+      Sports Complex<br>
+      Hostels and Cafeteria<br>
+      Transport Services<br>
+      Computer Labs<br>
+    </ul>
+  </section>
+   <div class="carousel-container">
+        <button class="nav-button left" onclick="moveLeft()">&#10094;</button>
+        
+        <div class="image-set">
+            <img src="https://images6.alphacoders.com/131/1319754.jpeg" alt="Image 1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTutFgiovy-cJ456GoRtRoGX3YZ-gGQ_895TA&s" alt="Image 2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUOc5Zb3nSRcHjVhmWwVYLj0dngxw5RsXMvQ&s" alt="Image 3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO_7hqRYLUzGsc2wpne5DB0aViK4GkbeOkyA&s" alt="Image 4">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlvsbiZkSoJwN3K1xnq2yDbM0IP3YAs73MTQ&s" alt="Image 5">
+           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcTO5a4G7xdxWIwlTFSFYnjo138KuYG_-pSA&s" alt="image 6">
+        </div>
+</div>
+
+  <!-- College Location -->
+  <section id="location">
+    <h2>College Location</h2>
+    <img src="location-image.jpg" alt="College Location Map">
+  </section>
+
+  <!-- Contact Information -->
+  <section id="contact">
+    <h2>Contact Information</h2>
+    <p>Address: 123 Polytechnic Road, City, Country</p>
+    <p>Email: contact@polytechnic.edu</p>
+    <p>Phone: +123 456 7890</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Polytechnic College. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+
+// Slideshow functionality
+let slideIndex = 0;
+
+function showSlides() {
+  let slides = document.getElementsByClassName("slides");
+
+  // Hide all slides
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slideIndex++;
+
+  // If we reach the end of the slides, reset back to the first one
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
+
+  // Display the current slide
+  slides[slideIndex - 1].style.display = "block";
+
+  // Change slide every 3 seconds
+  setTimeout(showSlides, 3000);
+}
+
+// Initialize slideshow
+showSlides();
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    // Scroll to the target section smoothly
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
+});
+
+// Add hover effects for department cards
+document.querySelectorAll('.department').forEach(department => {
+  department.addEventListener('mouseenter', function () {
+    department.style.transform = "scale(1.05)";
+    department.style.transition = "transform 0.3s ease-in-out";
+  });
+
+  department.addEventListener('mouseleave', function () {
+    department.style.transform = "scale(1)";
+  });
+});
+
+ const imageSet = document.querySelector('.image-set');
+
+    // Function to scroll images automatically
+    let autoScrollInterval;
+
+    function startAutoScroll() {
+        autoScrollInterval = setInterval(() => {
+            moveLeft(); // Change to scroll left
+        }, 3000); // Changed time to 3000ms (3 seconds)
+    }
+
+    function stopAutoScroll() {
+        clearInterval(autoScrollInterval);
+    }
+
+    // Function to scroll left by one image width
+    function moveLeft() {
+        const width = document.querySelector('.image-set img').offsetWidth + 20; // Including margin
+        imageSet.style.transform = `translateX(-${width}px)`;
+    }
+
+    // Function to scroll right by one image width
+    function moveRight() {
+        const width = document.querySelector('.image-set img').offsetWidth + 20; // Including margin
+        imageSet.style.transform = `translateX(${width}px)`;
+    }
+
+    // Reset scrolling position after one cycle (to loop images smoothly)
+    imageSet.addEventListener('transitionend', () => {
+        const lastImage = imageSet.querySelector('img:last-child');
+        if (imageSet.style.transform.includes('-')) {
+            imageSet.insertBefore(lastImage, imageSet.firstChild);
+            imageSet.style.transition = 'none'; // Remove transition effect temporarily
+            imageSet.style.transform = 'translateX(0)';
+            setTimeout(() => {
+                imageSet.style.transition = 'transform 0.5s ease'; // Re-enable transition effect
+            });
+        } else {
+            const firstImage = imageSet.querySelector('img');
+            imageSet.appendChild(firstImage);
+            imageSet.style.transition = 'none'; // Remove transition effect temporarily
+            imageSet.style.transform = 'translateX(0)';
+            setTimeout(() => {
+                imageSet.style.transition = 'transform 0.5s ease'; // Re-enable transition effect
+            });
+        }
+    });
+
+    // Start automatic scrolling when the page loads
+    startAutoScroll();
+
+    // Optional: Pause automatic scrolling when user hovers over the slider
+    document.querySelector('.carousel-container').addEventListener('mouseover', stopAutoScroll);
+    document.querySelector('.carousel-container').addEventListener('mouseout', startAutoScroll);
+
+</script>
+</body>
+
+</html>

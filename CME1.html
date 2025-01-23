@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of Computer Engineering</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+        }
+
+        /* Header */
+        .header {
+            background: #003366;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+        }
+
+        .header .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header img {
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px 15px;
+        }
+
+        .navbar a:hover {
+            background: #005bb5;
+            border-radius: 5px;
+        }
+
+        /* Dropdown */
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background: #003366;
+            top: 100%;
+            left: 0;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .dropdown a:hover {
+            background: #005bb5;
+        }
+
+        /* Outer Section Container */
+        .container-main {
+            width: 65%; /* Reduced width */
+            max-width: 1300px;
+            text-align: center;
+            background-color: #ffffff;
+            padding: 60px 25px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            border-radius: 30px;
+            margin-top: 150px; /* Creates space between the fixed header and the container */
+            margin-bottom: 40px; /* Optional, if you want some space at the bottom */
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Adds space between content elements */
+        }
+
+        /* Header Styling */
+        .heading-section h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 40px;
+        }
+
+        /* Buttons Outer Container */
+        .buttons-container {
+            margin-top: 40px; /* Space between header and buttons */
+            display: flex;
+            flex-direction: column; /* Make buttons stack vertically */
+            align-items: center; /* Center the buttons horizontally */
+            gap: 20px; /* Space between buttons */
+        }
+
+        /* Button Styling */
+        .button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.25em;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
+            width: 250px; /* Fixed width for buttons */
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+            transform: translateY(-4px);
+        }
+
+        .button:active {
+            background-color: #1d6fa5;
+            transform: translateY(2px);
+        }
+
+        /* Link Styling for Syllabus and Results */
+        .button-link {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Image Section */
+        .image-container {
+            display: none;
+            flex-wrap: wrap;
+            margin-top: 200px;
+            gap: 20px; /* Space between images */
+            justify-content: center;
+            flex-direction: column; /* Stack images vertically */
+        }
+
+        /* Image inside the container */
+        .image-container img {
+            width: 300px;
+            height: 200px;
+            margin: 10px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Flex Container for main content and image section */
+        .content-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between the department container and image section */
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 768px) {
+            .buttons-container {
+                gap: 15px; /* Reduce gap between buttons on smaller screens */
+            }
+            .button {
+                width: 80%; /* Make buttons take more space on smaller screens */
+            }
+
+            .content-wrapper {
+                flex-direction: column; /* Stack content on top of images on small screens */
+                gap: 10px;
+            }
+
+            .container-main {
+                width: 90%; /* Make the department container wider on small screens */
+            }
+
+            .image-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="D:\tanishq\sakeeb\GPTGNVMLOGO (1).jpg" alt="College Logo" width="300">&nbsp
+            </div><br>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#departments">Departments</a>
+                        <div class="dropdown">
+                            <a href="#">CME</a>
+                            <a href="#">EEE</a>
+                            <a href="#">ECE</a>
+                            <a href="#">MEC</a>
+                        </div>
+                    </li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Content Section (Department of Computer Engineering) -->
+    <div class="content-wrapper">
+        <div class="container-main">
+            <div class="heading-section">
+                <h1>Department of Computer Engineering</h1>
+            </div>
+
+            <!-- Vertical Buttons container -->
+            <div class="buttons-container">
+                <button class="button" onclick="showImages('labs')">Labs</button>
+                <button class="button" onclick="showImages('faculty')">Faculty</button>
+
+                <!-- Syllabus and Results buttons as links -->
+                <a href="syllabus.html" class="button-link">
+                    <button class="button">Syllabus</button>
+                </a>
+                <a href="results.html" class="button-link">
+                    <button class="button">Results</button>
+                </a>
+            </div>
+        </div>
+
+        <!-- Image Section -->
+        <div id="labs-images" class="image-container">
+            <h2>Labs</h2>
+            <img src="https://via.placeholder.com/300x200?text=Lab+1" alt="Lab 1">
+            <img src="https://via.placeholder.com/300x200?text=Lab+2" alt="Lab 2">
+            <img src="https://via.placeholder.com/300x200?text=Lab+3" alt="Lab 3">
+        </div>
+
+        <div id="faculty-images" class="image-container">
+            <h2>Faculty</h2>
+            <img src="https://via.placeholder.com/300x200?text=Faculty+1" alt="Faculty 1">
+            <img src="https://via.placeholder.com/300x200?text=Faculty+2" alt="Faculty 2">
+            <img src="https://via.placeholder.com/300x200?text=Faculty+3" alt="Faculty 3">
+        </div>
+    </div>
+
+    <script>
+        function showImages(section) {
+            // Hide both images sections first
+            document.getElementById('labs-images').style.display = 'none';
+            document.getElementById('faculty-images').style.display = 'none';
+
+            // Display the section based on the clicked button
+            if (section === 'labs') {
+                document.getElementById('labs-images').style.display = 'flex';
+            } else if (section === 'faculty') {
+                document.getElementById('faculty-images').style.display = 'flex';
+            }
+        }
+    </script>
+
+</body>
+</html>

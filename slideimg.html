@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Slider</title>
+  <style>
+    /* Container for the slider */
+    #slider-wrapper {
+      position: relative;
+      width: 100%; /* Adjust as needed */
+      height: 400px; /* Set a fixed height for the slider (adjust as needed) */
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    /* The container that holds all the images in a row */
+    .image-container {
+      display: flex;
+      transition: transform 0.5s ease; /* Smooth sliding transition */
+    }
+
+    /* Each image wrapper */
+    .slide-item {
+      min-width: 70%; /* Ensure each image takes full width */
+      box-sizing: border-box;
+    }
+
+    /* Ensure images fit well within their container */
+    .slide-item img {
+      width: 100%;
+      height: 100%; /* Make the images fit the height of the container */
+      object-fit: cover; /* Ensure images cover the area while maintaining aspect ratio */
+      border-radius: 10px;
+    }
+
+    /* Style for the left and right navigation buttons */
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 30px;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 10; /* Ensure the buttons are on top */
+    }
+
+    .nav-button.left {
+      left: 10px;
+    }
+
+    .nav-button.right {
+      right: 10px;
+    }
+
+    .nav-button:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  </style>
+</head>
+<body>
+<marquee width="100%" direction="left" class="blink_me" style=" margin-top: 5 px;color:#ff5500;font-size: 15px; 
+                         font-weight: bold; margin-top: 10px;" onmouseover="this.stop();" onmouseout="this.start();" scrollamount="6" scrolldelay="0"> <img src="img/new.gif"> Applications for Recounting and Photocopy of Type Writing &amp; Short Hand Examinations Aug/Sept 2024 results has been released || <img src="img/new.gif"> Type Writing &amp; Short Hand Examinations Aug/Sept 2024 results has been released. </marquee>
+
+<!-- Slider Section -->
+<section id="slider-wrapper">
+  <!-- Left Scroll Button -->
+  <button class="nav-button left" onclick="moveLeft()">&#10094;</button>
+
+  <!-- Image Container -->
+  <div class="image-container">
+    <div class="slide-item">
+      <img src="D:\tanishq\sakeeb\GPTGNVM6.jpg" alt="College Image 1">
+    </div>
+    <div class="slide-item">
+      <img src="D:\tanishq\sakeeb\GPTGNVM3.jpg" alt="College Image 2">
+    </div>
+    <div class="slide-item">
+      <img src="D:\tanishq\sakeeb\GPTGNM4.jpg" alt="College Image 3">
+    </div>
+    <div class="slide-item">
+      <img src="D:\tanishq\sakeeb\GPTGNVM5.jpg" alt="College Image 4">
+    </div>
+  </div>
+
+  <!-- Right Scroll Button -->
+  <button class="nav-button right" onclick="moveRight()">&#10095;</button>
+</section>
+
+<script>
+  const imageContainer = document.querySelector('.image-container');
+  const slides = document.querySelectorAll('.slide-item');
+  const totalSlides = slides.length;
+  let currentIndex = 0;
+
+  // Clone the first and last slides to create a circular loop
+  const firstSlide = document.querySelector('.slide-item:first-child').cloneNode(true);
+  const lastSlide = document.querySelector('.slide-item:last-child').cloneNode(true);
+  
+  // Add the clones to the image container
+  imageContainer.appendChild(firstSlide);  // Append clone of first slide to the end
+  imageContainer.insertBefore(lastSlide, imageContainer.firstChild);  // Prepend clone of last slide to the beginning
+
+  // Function to update the slider by changing the transform property
+  function updateSlider() {
+    imageContainer.style.transform = `translateX(-${(currentIndex + 1) * 100}%)`; // Move the images based on currentIndex, +1 for clone offset
+  }
+
+  // Function to move slides to the left
+  function moveLeft() {
+    if (currentIndex <= 0) {
+      currentIndex = totalSlides - 1;  // When at the first image, go to the last one (ignoring the clones)
+      imageContainer.style.transition = 'none';  // Remove transition during the jump
+      updateSlider();
+      
+      // Apply smooth transition after the jump
+      setTimeout(() => {
+        imageContainer.style.transition = 'transform 0.5s ease';
+      }, 50);  // Small delay for smooth transition
+    } else {
+      currentIndex--;
+    }
+    updateSlider();
+  }
+
+  // Function to move slides to the right
+  function moveRight() {
+    if (currentIndex >= totalSlides) {
+      currentIndex = 0;  // Reset to the first image (ignoring the clones)
+      imageContainer.style.transition = 'none';  // Remove transition during the jump
+      updateSlider();
+      
+      // Apply smooth transition after the jump
+      setTimeout(() => {
+        imageContainer.style.transition = 'transform 0.5s ease';
+      }, 50);  // Small delay for smooth transition
+    } else {
+      currentIndex++;
+    }
+    updateSlider();
+  }
+
+  // Automatically change the slide every 3 seconds
+  setInterval(function() {
+    moveRight(); // Automatically move to the next slide
+  }, 3000); // 3000ms = 3 seconds
+
+  // Start the initial update when the page loads
+  updateSlider();
+</script>
+
+</body>
+</html>
