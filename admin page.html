@@ -88,34 +88,25 @@
         <p id="status"></p>
     </div>
     <script>
-        const WebSocket = require('ws');
-        const wss = new WebSocket.Server({ port: 8080 }); // Choose a port
+        const socket = new WebSocket('ws://localhost:8080'); // Connect to the WebSocket server
 
-        wss.on('connection', ws => {
-            console.log('Client connected');
+        socket.onopen = function(event) {
+            console.log('WebSocket connection established.');
+        };
 
-            ws.on('close', () => {
-                console.log('Client disconnected');
-            });
-        });
+        socket.onmessage = function(event) {
+            console.log('Message from server: ', event.data);
+        };
 
         function pushNotification() {
             let notificationInput = document.getElementById('notification-input').value.trim();
             if (notificationInput !== '') {
-                sendNotification(notificationInput);
+                socket.send(notificationInput); // Send notification to the server
                 alert('Notification sent!');
                 document.getElementById('notification-input').value = ''; // Clear input
             } else {
                 alert('Please enter a valid notification!');
             }
-        }
-
-        function sendNotification(notification) {
-            wss.clients.forEach(client => {
-                if (client.readyState === WebSocket.OPEN) {
-                    client.send(notification);
-                }
-            });
         }
     </script>
 </body>
