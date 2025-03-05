@@ -577,25 +577,32 @@
 
         // Automatically change faculty images every 3 seconds
         setInterval(mR, 3000);
+     //marquee notification
+    function updateMarquee(notification) {
+        const marqueeText = document.getElementById('marquee-text');
+        marqueeText.innerHTML = notification;
+    }
 
-     function loadNotifications() {
-            let notifications = JSON.parse(localStorage.getItem('notifications')) || [];
-            let marquee = document.getElementById('notification-marquee');
-            
-            if (notifications.length > 0) {
-                marquee.textContent = notifications.join(' • '); // Separate notifications with a dot
-            } else {
-                marquee.textContent = "No new notifications.";
-            }
-        }
+    const socket = new WebSocket('ws://your-websocket-server-url'); // Replace with your server URL
 
-      // Update notifications every 2 seconds
-        setInterval(loadNotifications, 2000);
+    socket.onopen = function(event) {
+        console.log('WebSocket connection established.');
+    };
 
-        // Load notifications when the page first loads
-        document.addEventListener('DOMContentLoaded', loadNotifications);
+    socket.onmessage = function(event) {
+        const notification = event.data;
+        updateMarquee(notification);
+    };
 
+    socket.onclose = function(event) {
+        console.log('WebSocket connection closed.');
+    };
 
+    socket.onerror = function(error) {
+        console.error('WebSocket error:', error);
+    };
+
+    // ... (Your other JavaScript code)
 
      function updateMarquee(notification) {
   const marqueeText = document.getElementById('marquee-text');
