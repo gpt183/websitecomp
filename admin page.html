@@ -44,6 +44,20 @@
             margin-top: 20px;
             border-radius: 5px;
         }
+
+            function pushNotification() {
+        let notificationInput = document.getElementById('notification-input').value.trim();
+        if (notificationInput !== '') {
+            let notifications = JSON.parse(localStorage.getItem('notifications')) || [];
+            notifications.unshift(notificationInput); // Add new notification at the top
+            localStorage.setItem('notifications', JSON.stringify(notifications));
+            alert('Notification sent!');
+            document.getElementById('notification-input').value = ''; // Clear input
+        } else {
+            alert('Please enter a valid notification!');
+        }
+    }
+
         .notification-box {
             display: flex;
             flex-direction: column;
