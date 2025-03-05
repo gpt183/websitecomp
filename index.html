@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,35 +15,52 @@
             color: #333;
             line-height: 1.6;
         }
+
         .container {
             width: 90%;
             margin: auto;
             max-width: 1200px;
         }
+
+        #notification-marquee {
+            background-color: yellow;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px;
+            width: 100%;
+            white-space: nowrap;
+        }
+
+
         h1, h2 {
             color: #003366;
         }
+
         /* Header */
         .header {
-            background: #0047AB;
+             background: #0047AB;
             color: blue;
-            padding: 0px 0;
+            padding: 20px 0;
             text-align: center;
             position: fixed;
             width: 100%;
             z-index: 1000;
         }
+
         .header .logo {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-right: 400px;
         }
+
         .header img {
             height: 50px;
             margin-left: 300px;
             align: center;
         }
+
         .navbar ul {
             list-style: none;
             margin: 0;
@@ -52,20 +69,24 @@
             justify-content: center;
             position: relative;
         }
+
         .navbar li {
             margin: 0 15px;
             position: relative;
         }
+
         .navbar a {
             text-decoration: none;
             color: #fff;
             font-weight: bold;
             padding: 10px 15px;
         }
+
         .navbar a:hover {
             background: #005bb5;
             border-radius: 5px;
         }
+
         /* Dropdown Menu */
         .dropdown {
             display: none;
@@ -75,18 +96,22 @@
             padding: 10px;
             z-index: 1000;
         }
+
         .navbar li:hover .dropdown {
             display: block;
         }
+
         .dropdown a {
             color: #fff;
             padding: 10px;
             text-decoration: none;
             display: block;
         }
+
         .dropdown a:hover {
             background: #005bb5;
         }
+
         /* Hero Section*/ 
         .hero {
             background: url('hero-bg.jpg') no-repeat center center/cover;
@@ -97,10 +122,12 @@
             color: #fff;
             text-align: center;
         }
+
         #sak {
             color: #0047AB;
             font-size: 30px;
         } 
+
         .hero .btn {
             display: inline-block;
             margin-top: 5px;
@@ -110,17 +137,21 @@
             text-decoration: none;
             border-radius: 5px;
         }
+
         .hero .btn:hover {
             background: #c13d24;
         }
+
         /* Sections */
         .section {
             padding: 50px 0;
         }
+
         .section h2 {
             text-align: center;
             margin-bottom: 20px;
         }
+
         /* Slider Styles */
         #slider-wrapper {
             position: relative;
@@ -128,20 +159,24 @@
             margin: 0 auto;
             overflow: hidden;
         }
+
         .image-container {
             display: flex;
             transition: transform 0.5s ease;
         }
+
         .slide-item {
             min-width: 100%;
             box-sizing: border-box;
         }
+
         .slide-item img {
             width: 60%;
             height: auto;
             object-fit: cover;
             border-radius: 10px;
         }
+
         .nav-button {
             position: absolute;
             top: 50%;
@@ -157,15 +192,19 @@
             cursor: pointer;
             z-index: 10;
         }
+
         .nav-button.left {
             left: 10px;
         }
+
         .nav-button.right {
             right: 10px;
         }
+
         .nav-button:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
+
         /* Faculty Slider Styles */
         #s {
             position: relative;
@@ -173,20 +212,24 @@
             margin: 0 auto;
             overflow: hidden;
         }
+
         .c {
             display: flex;
             transition: transform 0.5s ease;
         }
+
         .i {
             min-width: 100%;
             box-sizing: border-box;
         }
+
         .i img {
             width: 30%;
             height: 250px;
             object-fit: cover;
             border-radius: 10px;
         }
+
         .n {
             position: absolute;
             top: 50%;
@@ -202,25 +245,30 @@
             cursor: pointer;
             z-index: 10;
         }
+
         .n.l {
             left: 200px;
         }
+
         .n.r {
             right: 200px;
         }
         .n:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
+
         /* Departments Section */
         .card-container {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
         }
+
         #a1 {
             text-decoration: none;
             color: black;
         }
+
         .card {
             background: #f4f4f4;
             padding: 20px;
@@ -231,27 +279,32 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .card:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
+
         .card i {
             font-size: 3rem;
             color: #003366;
             margin-bottom: 10px;
         }
+
         /* Gallery */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
+
         .gallery-grid img {
             width: 100%;
             height: 100%;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         /* Footer */
         .footer {
             background: #003366;
@@ -259,14 +312,12 @@
             text-align: center;
             padding: 20px 0;
         }
-        #notification-marquee {
-            background-color: yellow;
-            color: black;
-            font-size: 18px;
-            font-weight: bold;
-            padding: 10px;
-            width: 100%;
-        }
+     #notification-marquee {
+  width: 100%;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  white-space: nowrap; /* Prevent wrapping */
+}
     </style>
 </head>
 <body>
@@ -274,6 +325,7 @@
         <div class="container">
             <div class="logo">
                 <img src="GPTGNVMLOGO.jpg" alt="College Logo" width="300" align="center">&nbsp
+
             </div>
             <nav class="navbar">
                 <ul>
@@ -296,7 +348,9 @@
         </div>
     </header>
 
+
     <section>
+        <br><br><br><br><br>
         <p align="center" id="sak"> <b>Welcome to Government Polytechnic Gannavaram</b></p>
     </section>
 
@@ -405,16 +459,15 @@
         </div>
         <button class="n r" onclick="mR()">&#10095;</button>
     </section>
-    <br>
+<br>
+ <marquee id="notification-marquee" behavior="scroll" direction="left">
+        No new notifications.
+    </marquee>
+ <div id="notification-marquee">
+  <marquee id="marquee-text" behavior="scroll" direction="left" scrollamount="5"></marquee>
+</div>
 
-    <br>
-
-    <div id="notification-marquee">
-        <marquee id="marquee-text" behavior="scroll" direction="left" scrollamount="5"></marquee>
-    </div>
-
-    <br>
-
+    <br><br>
     <section id="gallery" class="section gallery">
         <div class="container">
             <h2>Gallery</h2>
@@ -528,30 +581,50 @@
         // Automatically change faculty images every 3 seconds
         setInterval(mR, 3000);
 
-        // Marquee notification
-        function updateMarquee(notification) {
-            const marqueeText = document.getElementById('marquee-text');
-            marqueeText.innerHTML = notification;
+     function loadNotifications() {
+            let notifications = JSON.parse(localStorage.getItem('notifications')) || [];
+            let marquee = document.getElementById('notification-marquee');
+
+            if (notifications.length > 0) {
+                marquee.textContent = notifications.join(' • '); // Separate notifications with a dot
+            } else {
+                marquee.textContent = "No new notifications.";
+            }
         }
 
-        const socket = new WebSocket('ws://localhost:8080'); // Replace with your server URL
+      // Update notifications every 2 seconds
+        setInterval(loadNotifications, 2000);
 
-        socket.onopen = function(event) {
-            console.log('WebSocket connection established.');
-        };
+        // Load notifications when the page first loads
+        document.addEventListener('DOMContentLoaded', loadNotifications);
 
-        socket.onmessage = function(event) {
-            const notification = event.data;
-            updateMarquee(notification);
-        };
 
-        socket.onclose = function(event) {
-            console.log('WebSocket connection closed.');
-        };
 
-        socket.onerror = function(error) {
-            console.error('WebSocket error:', error);
-        };
+     function updateMarquee(notification) {
+  const marqueeText = document.getElementById('marquee-text');
+  marqueeText.innerHTML = notification;
+}
+//new notifiy
+// Establish WebSocket connection (replace with your server URL)
+const socket = new WebSocket('ws://your-websocket-server-url');
+
+socket.onopen = function(event) {
+  console.log('WebSocket connection established.');
+};
+
+socket.onmessage = function(event) {
+  const notification = event.data;
+  updateMarquee(notification);
+};
+
+socket.onclose = function(event) {
+  console.log('WebSocket connection closed.');
+};
+
+socket.onerror = function(error) {
+  console.error('WebSocket error:', error);
+};
+
     </script>
 </body>
 </html>
