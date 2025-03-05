@@ -566,6 +566,19 @@
 
         // Automatically change faculty images every 3 seconds
         setInterval(mR, 3000);
+
+     function loadNotifications() {
+            let notifications = JSON.parse(localStorage.getItem('notifications')) || [];
+            let marquee = document.getElementById('notification-marquee');
+            
+            if (notifications.length > 0) {
+                marquee.textContent = notifications.join(' • '); // Separate notifications with a dot
+            } else {
+                marquee.textContent = "No new notifications.";
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadNotifications);
     </script>
 </body>
 </html>
