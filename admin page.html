@@ -44,16 +44,13 @@
             margin-top: 20px;
             border-radius: 5px;
         }
-
-
         .notification-box {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-        textarea {
+        input[type="text"] {
             width: 100%;
-            height: 100px;
             padding: 10px;
             font-size: 16px;
         }
@@ -78,7 +75,7 @@
     <nav class="navbar">
         <a href="#dashboard">Dashboard</a>
         <a href="#manage-users">Manage Users</a>
-        <a href="admin page.html">Push Notification</a>
+        <a href="#push-notification">Push Notification</a>
         <a href="#settings">Settings</a>
         <a href="index.html">Go to Main Page</a>
     </nav>
@@ -86,48 +83,40 @@
         <h2>Push Notification</h2>
         <div class="notification-box">
             <input type="text" id="notification-input" placeholder="Enter notification">
-<button onclick="pushNotification()">Send</button>
-
+            <button onclick="pushNotification()">Send</button>
         </div>
         <p id="status"></p>
     </div>
     <script>
-        
+        const WebSocket = require('ws');
+        const wss = new WebSocket.Server({ port: 8080 }); // Choose a port
 
-                    function pushNotification() {
+        wss.on('connection', ws => {
+            console.log('Client connected');
+
+            ws.on('close', () => {
+                console.log('Client disconnected');
+            });
+        });
+
+        function pushNotification() {
             let notificationInput = document.getElementById('notification-input').value.trim();
             if (notificationInput !== '') {
-                let notifications = JSON.parse(localStorage.getItem('notifications')) || [];
-                notifications.unshift(notificationInput); // Add new notification at the top
-                localStorage.setItem('notifications', JSON.stringify(notifications));
+                sendNotification(notificationInput);
                 alert('Notification sent!');
                 document.getElementById('notification-input').value = ''; // Clear input
             } else {
                 alert('Please enter a valid notification!');
             }
         }
-        const WebSocket = require('ws');
 
-const wss = new WebSocket.Server({ port: 8080 }); // Choose a port
-
-wss.on('connection', ws => {
-  console.log('Client connected');
-
-  ws.on('close', () => {
-    console.log('Client disconnected');
-  });
-});
-
-function sendNotification(notification) {
-  wss.clients.forEach(client => {
-    if (client.readyState === WebSocket.OPEN) {
-      client.send(notification);
-    }
-  });
-}
-
-// Example: When an admin sends a notification (replace with your admin logic)
-//sendNotification('New product available!');
+        function sendNotification(notification) {
+            wss.clients.forEach(client => {
+                if (client.readyState === WebSocket.OPEN) {
+                    client.send(notification);
+                }
+            });
+        }
     </script>
 </body>
 </html>
