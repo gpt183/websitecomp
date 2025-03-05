@@ -45,18 +45,6 @@
             border-radius: 5px;
         }
 
-            function pushNotification() {
-        let notificationInput = document.getElementById('notification-input').value.trim();
-        if (notificationInput !== '') {
-            let notifications = JSON.parse(localStorage.getItem('notifications')) || [];
-            notifications.unshift(notificationInput); // Add new notification at the top
-            localStorage.setItem('notifications', JSON.stringify(notifications));
-            alert('Notification sent!');
-            document.getElementById('notification-input').value = ''; // Clear input
-        } else {
-            alert('Please enter a valid notification!');
-        }
-    }
 
         .notification-box {
             display: flex;
@@ -103,16 +91,21 @@
         <p id="status"></p>
     </div>
     <script>
-        function pushNotification() {
-            const notificationText = document.getElementById("notification-text").value;
-            if (notificationText.trim() === "") {
-                alert("Notification text cannot be empty!");
-                return;
-            }
-            localStorage.setItem("adminNotification", notificationText);
-            document.getElementById("status").innerText = "Notification sent successfully!";
-            document.getElementById("notification-text").value = "";
+        
+
+                    function pushNotification() {
+        let notificationInput = document.getElementById('notification-input').value.trim();
+        if (notificationInput !== '') {
+            let notifications = JSON.parse(localStorage.getItem('notifications')) || [];
+            notifications.unshift(notificationInput); // Add new notification at the top
+            localStorage.setItem('notifications', JSON.stringify(notifications));
+            alert('Notification sent!');
+            document.getElementById('notification-input').value = ''; // Clear input
+        } else {
+            alert('Please enter a valid notification!');
         }
+    }
+
     </script>
 </body>
 </html>
