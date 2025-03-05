@@ -312,6 +312,12 @@
             text-align: center;
             padding: 20px 0;
         }
+     #notification-marquee {
+  width: 100%;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  white-space: nowrap; /* Prevent wrapping */
+}
     </style>
 </head>
 <body>
@@ -454,9 +460,10 @@
         <button class="n r" onclick="mR()">&#10095;</button>
     </section>
 <br>
- <marquee id="notification-marquee" behavior="scroll" direction="left">
-        No new notifications.
-    </marquee>
+ <div id="notification-marquee">
+  <marquee id="marquee-text" behavior="scroll" direction="left" scrollamount="5"></marquee>
+</div>
+
     <br><br>
     <section id="gallery" class="section gallery">
         <div class="container">
@@ -587,6 +594,34 @@
 
         // Load notifications when the page first loads
         document.addEventListener('DOMContentLoaded', loadNotifications);
+
+
+
+     function updateMarquee(notification) {
+  const marqueeText = document.getElementById('marquee-text');
+  marqueeText.innerHTML = notification;
+}
+//new notifiy
+// Establish WebSocket connection (replace with your server URL)
+const socket = new WebSocket('ws://your-websocket-server-url');
+
+socket.onopen = function(event) {
+  console.log('WebSocket connection established.');
+};
+
+socket.onmessage = function(event) {
+  const notification = event.data;
+  updateMarquee(notification);
+};
+
+socket.onclose = function(event) {
+  console.log('WebSocket connection closed.');
+};
+
+socket.onerror = function(error) {
+  console.error('WebSocket error:', error);
+};
+
     </script>
 </body>
 </html>
