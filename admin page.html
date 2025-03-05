@@ -102,10 +102,10 @@
             let notificationInput = document.getElementById('notification-input').value.trim();
             if (notificationInput !== '') {
                 socket.send(notificationInput); // Send notification to the server
-                alert('Notification sent!');
+                alert('Notification sent!'); // Alert box confirming the notification was sent
                 document.getElementById('notification-input').value = ''; // Clear input
             } else {
-                alert('Please enter a valid notification!');
+                alert('Please enter a valid notification!'); // Alert for empty input
             }
         }
     </script>
