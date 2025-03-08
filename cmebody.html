@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Department of Computer Engineering</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         /* General Reset */
         * {
@@ -42,104 +43,108 @@
             margin-right: 20px;
         }
 
-        .navbar ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        .navbar li {
-            margin: 0 15px;
+        /* Navigation */
+        .topnav {
+            overflow: hidden;
             position: relative;
         }
 
-        .navbar a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
+        .topnav #myLinks {
+            display: none; /* Hidden by default on smaller screens */
+        }
+
+        .topnav a {
+            color: white;
             padding: 10px 15px;
-        }
-
-        .navbar a:hover {
-            background: #005bb5;
-            border-radius: 5px;
-        }
-
-        /* Dropdown */
-        .navbar li:hover .dropdown {
+            text-decoration: none;
+            font-size: 17px;
             display: block;
         }
 
+        .topnav a:hover {
+            background-color: #005bb5;
+        }
+
+        .topnav .icon {
+            display: none; /* Hidden by default for larger screens */
+        }
+
+        /* Dropdown for Departments */
         .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
             display: none;
             position: absolute;
-            background: #003366;
-            top: 100%;
-            left: 0;
-            width: 200px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #003366;
+            min-width: 120px; /* Reduced size for desktop */
+            z-index: 1;
         }
 
-        .dropdown a {
-            display: block;
-            padding: 10px;
+        .dropdown-content a {
+            color: white;
+            padding: 10px 15px;
             text-decoration: none;
-            color: #fff;
+            display: block;
         }
 
-        .dropdown a:hover {
-            background: #005bb5;
+        .dropdown-content a:hover {
+            background-color: #005bb5;
         }
 
-        /* Outer Section Container */
-        .container-main {
-            width: 65%; /* Reduced width */
-            max-width: 1300px;
-            text-align: center;
-            background-color: #ffffff;
-            padding: 60px 25px;
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-            border-radius: 30px;
-            margin-top: 150px; /* Creates space between the fixed header and the container */
-            margin-bottom: 40px; /* Optional, if you want some space at the bottom */
-            margin-left: auto;
-            margin-right: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px; /* Adds space between content elements */
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
-        /* Header Styling */
-        .heading-section h1 {
-            font-size: 3.5em;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 40px;
+        /* Show navigation links on larger screens */
+        @media (min-width: 769px) {
+            .topnav #myLinks {
+                display: flex; /* Show links horizontally */
+                justify-content: center;
+                gap: 20px;
+                position: static; /* Reset position */
+                background-color: transparent; /* Remove background */
+                padding: 0; /* Remove padding */
+                box-shadow: none; /* Remove shadow */
+            }
+
+            .topnav .icon {
+                display: none; /* Hide hamburger icon */
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                min-width: 120px; /* Reduced size for desktop */
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
         }
 
-        /* Buttons Outer Container */
+        /* Buttons Container */
         .buttons-container {
-            margin-top: 40px; /* Space between header and buttons */
             display: flex;
-            flex-direction: column; /* Make buttons stack vertically */
-            align-items: center; /* Center the buttons horizontally */
-            gap: 20px; /* Space between buttons */
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 40px;
         }
 
-        /* Button Styling */
         .button {
             background-color: #3498db;
             color: white;
             border: none;
-            padding: 18px 35px;
-            font-size: 1.25em;
+            padding: 10px;
+            font-size: 1.1em;
+            width: 200px; /* Fixed width for buttons */
             border-radius: 6px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
-            width: 250px; /* Fixed width for buttons */
+            text-align: center;
+            flex: 1; /* Ensure equal width */
         }
 
         .button:hover {
@@ -157,30 +162,56 @@
             color: white;
         }
 
+        /* Outer Section Container */
+        .container-main {
+            width: 90%;
+            max-width: 1300px;
+            text-align: center;
+            background-color: #ffffff;
+            padding: 5vh 2vw;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            border-radius: 30px;
+            margin-top: 15vh; /* Adjusted to avoid header overlap */
+            margin-bottom: 4vh;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Header Styling */
+        .heading-section h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 40px;
+        }
+
         /* Image Section */
         .image-container {
             display: none;
             flex-wrap: wrap;
             margin-top: 20px;
-            gap: 20px; /* Space between images */
+            gap: 20px;
             justify-content: center;
             flex-direction: row;
         }
 
         .image-container img {
-            width: 300px;
-            height: 200px;
-            margin: 10px;
+            width: 100%;
+            max-width: 300px;
+            height: auto;
             object-fit: cover;
-            border-radius: 10px; /* Minimal border radius */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for images */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         /* Faculty Section Styling */
         .faculty-section {
             display: flex;
             justify-content: center;
-            gap: 40px; /* Horizontal space between faculty members */
+            gap: 40px;
             margin-top: 40px;
         }
 
@@ -189,12 +220,13 @@
         }
 
         .faculty-member img {
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            max-width: 150px;
+            height: auto;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for images */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .faculty-member h3 {
@@ -221,12 +253,13 @@
         }
 
         .hod-member img {
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            max-width: 150px;
+            height: auto;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for images */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .hod-member h3 {
@@ -239,73 +272,98 @@
             color: #3498db;
         }
 
-        /* Flex Container for main content and image section */
-        .content-wrapper {
-            display: flex;
-            justify-content: center;
-            gap: 20px; /* Space between the department container and image section */
-        }
-
         /* Mobile Responsiveness */
         @media screen and (max-width: 768px) {
-            .buttons-container {
-                gap: 15px; /* Reduce gap between buttons on smaller screens */
+            .topnav .icon {
+                display: block; /* Show hamburger icon */
             }
+
+            .topnav #myLinks {
+                position: static; /* Position normally in the flow */
+                box-shadow: none; /* Remove shadow */
+                padding: 0; /* Remove padding */
+                background-color: transparent; /* Make background transparent */
+            }
+
+            .topnav.show #myLinks {
+                display: block; /* Show menu items */
+            }
+
+            .topnav a {
+                text-align: left; /* Align text to the left */
+                padding: 10px 15px; /* Add padding for readability */
+                color: white; /* Set text color to white */
+            }
+
+            .buttons-container {
+                flex-direction: column; /* Stack buttons vertically */
+                align-items: center; /* Center items */
+            }
+
             .button {
-                width: 80%; /* Make buttons take more space on smaller screens */
+                width: 100%; /* Make buttons full width */
             }
 
             .content-wrapper {
-                flex-direction: column; /* Stack content on top of images on small screens */
+                flex-direction: column;
                 gap: 10px;
             }
 
             .container-main {
-                width: 90%; /* Make the department container wider on small screens */
+                width: 95%;
             }
 
             .image-container {
                 flex-direction: column;
             }
 
-            /* Stack faculty members vertically on small screens */
             .faculty-section {
                 flex-direction: column;
                 align-items: center;
             }
 
-            /* Stack HOD section vertically on small screens */
             .hod-section {
                 flex-direction: column;
                 align-items: center;
             }
+
+            /* Fix header overlap */
+            .container-main {
+                margin-top: 20vh; /* Adjust margin to avoid header overlap */
+            }
         }
     </style>
 </head>
-<body>
 
+<body>
     <!-- Header Section -->
     <header class="header">
         <div class="container">
             <div class="logo">
-                <img src="GPTGNVMLOGO.jpg" alt="College Logo" width="300">&nbsp
-            </div><br>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html">About</a></li>
-                    <li><a href="#departments">Departments</a>
-                        <div class="dropdown">
+                <img src="GPTGNVMLOGO.jpg" alt="College Logo" width="300">
+            </div>
+            <br>
+            <div class="topnav">
+                <a href="#" class="active">Department of Computer Engineering</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div id="myLinks">
+                    <a href="index.html">Home</a>
+                    <a href="index.html">About</a>
+                    <div class="dropdown">
+                        <a href="#departments">Departments</a>
+                        <div class="dropdown-content">
                             <a href="cmebody.html">CME</a>
                             <a href="eee.html">EEE</a>
                             <a href="ece.html">ECE</a>
                             <a href="mech.html">MEC</a>
                         </div>
-                    </li>
-                    <li><a href="index.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+                    </div>
+                    <a href="index.html">Gallery</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -319,11 +377,10 @@
         <div class="buttons-container">
             <button class="button" onclick="showImages('faculty')">Faculty</button>
             <button class="button" onclick="showImages('labs')">Labs</button>
-            <!-- Syllabus and Results buttons as links -->
             <a href="https://apsbtet.ap.gov.in/Syllabus/5%20-%20DCME.pdf" class="button-link">
                 <button class="button">Syllabus</button>
             </a>
-            <a href="https://sbtet.ap.gov.in/APSBTET/" class="button-link"  target="blank">
+            <a href="https://sbtet.ap.gov.in/APSBTET/" class="button-link" target="_blank">
                 <button class="button">Results</button>
             </a>
         </div>
@@ -333,34 +390,36 @@
             <h2>Head of Department</h2>
             <div class="hod-member">
                 <img src="1741464137734.png" alt="HOD Image">
-                <h3>Vijay vardan sir</h3>
-                <p>phd in comuter science</p>
+                <h3>Vijay Vardan Sir</h3>
+                <p>PhD in Computer Science</p>
             </div>
         </div>
 
         <!-- Faculty Section (Initially hidden) -->
         <div id="faculty-images" class="image-container">
-            <h2>Faculty</h2><br>
+            <h2>Faculty</h2>
+            <br>
             <div class="faculty-member">
                 <img src="https://www.andhrapolytechnickkd.com/images/K.BALABHASKAR.png" alt="Faculty 1">
                 <h3>K. Balabhaskar</h3>
-                <p>Senior lecturer</p>
+                <p>Senior Lecturer</p>
             </div>
             <div class="faculty-member">
                 <img src="manjula man cme fac1.jpg" alt="Faculty 2">
                 <h3>Manjula Man</h3>
-                <p>Senior lecturer</p>
+                <p>Senior Lecturer</p>
             </div>
             <div class="faculty-member">
                 <img src="sirisha mam cme fac2.jpg" alt="Faculty 3">
                 <h3>Sirisha Mam</h3>
-                <p>Java lecturer</p>
+                <p>Java Lecturer</p>
             </div>
         </div>
 
         <!-- Labs Section (Initially hidden) -->
         <div id="labs-images" class="image-container">
-            <h2>Labs</h2><br>
+            <h2>Labs</h2>
+            <br>
             <img src="https://govtpolygannavaram.ac.in//media/govtpolygannavaram_ac_in/lab_546_1672074331_WhatsApp-Image-2021-04-30-at-11.45.33-AM.jpeg.jpeg" alt="Lab 1">
             <img src="https://govtpolygannavaram.ac.in//media/govtpolygannavaram_ac_in/lab_546_1672074331_WhatsApp-Image-2021-04-30-at-11.45.33-AM-1.jpeg.jpeg" alt="Lab 2">
             <img src="https://govtpolygannavaram.ac.in//media/govtpolygannavaram_ac_in/lab_546_1672074331_COMP-CENTRE.jpg.jpg" alt="Lab 3">
@@ -381,7 +440,15 @@
                 document.getElementById('labs-images').style.display = 'flex';
             }
         }
-    </script>
 
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
 </body>
-</html>
+                </html>
